@@ -5,7 +5,6 @@ export default {
         padding: 20,
         flex: 1,
         backgroundColor: colors.mainBackgroundColor,
-        // justifyContent: "space-between"
     },
     title: {
         color: colors.fontColor,

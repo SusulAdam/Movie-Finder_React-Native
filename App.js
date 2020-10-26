@@ -3,8 +3,7 @@ import { Text, TextInput, View, TouchableWithoutFeedback, Keyboard, Alert } from
 import AppStyles from './styles/AppStyles';
 import apiKey from "./constans/apiKey";
 import ResultMovies from "./components/ResultMovies";
-import MovieDescription from "./components/MovieDescription"
-
+import MovieDescription from "./components/MovieDescription";
 
 export default class App extends React.Component {
 
@@ -82,13 +81,12 @@ export default class App extends React.Component {
           </View>
           { this.state.results ?
             <ResultMovies getMovieFromApi={ this.getMovieFromApi } results={ this.state.results } /> :
-            <Text style={ AppStyles.errorMessage }>Unfortunately no video found</Text> }
+            <Text style={ AppStyles.errorMessage }>Unfortunately no movie found</Text> }
           <MovieDescription closeMovieDecription={ this.closeMovieDecription } description={ this.state.selectedMovie } modalVisible={ this.state.modalVisible } />
         </View>
       </TouchableWithoutFeedback>
 
     );
   }
-
 }
 

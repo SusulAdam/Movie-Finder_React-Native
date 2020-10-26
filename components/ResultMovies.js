@@ -1,13 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ScrollView, View, Text, Image, TouchableHighlight } from 'react-native';
 import ResultsStyles from '../styles/ResultMoviesStyles';
-import apiKey from "../constans/apiKey"
 
 const ResultMovies = ( props ) => {
-
-
     return (
-
         <ScrollView >
             {props.results.map( result => (
                 <TouchableHighlight
@@ -28,7 +24,6 @@ const ResultMovies = ( props ) => {
                         <Text style={ ResultsStyles.movieName } >{ result.Title }</Text>
                     </View>
                 </TouchableHighlight>
-
             ) ) }
         </ScrollView>
     )

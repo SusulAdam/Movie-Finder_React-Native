@@ -2,18 +2,15 @@ import React from 'react';
 import MovieStyles from "../styles/MovieDescriptionStyles";
 import { Text, Modal, Image, View, TouchableHighlight } from "react-native"
 
-
 const MovieDescription = ( props ) => {
     const { description, modalVisible, closeMovieDecription } = props
-
-
 
     return (
         <Modal
             animationType="fade"
             transparent={ false }
             visible={ modalVisible }
-            onRequestClose={ !modalVisible }>
+            onRequestClose={ closeMovieDecription }>
             <View style={ MovieStyles.modalUp }>
                 <View>
                     <Text style={ MovieStyles.title }>{ description.Title }</Text>
@@ -29,8 +26,6 @@ const MovieDescription = ( props ) => {
             <TouchableHighlight onPress={ closeMovieDecription }>
                 <Text style={ MovieStyles.closeBtn }>Close</Text>
             </TouchableHighlight>
-
-
         </Modal>
     )
 }
