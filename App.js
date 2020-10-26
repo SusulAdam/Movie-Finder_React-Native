@@ -12,6 +12,7 @@ export default class App extends React.Component {
     this.state = {
       searchValue: "",
       results: [],
+      selectedMovie: {}
 
     };
   }
@@ -29,15 +30,29 @@ export default class App extends React.Component {
     } else {
       Alert.alert( "Text is too short", "Please write at leats 3 characters", [ { text: "Close", style: "negative" } ] )
     }
-
-
   }
+
+  getMovieFromApi = ( id, image ) => {
+    fetch( apiKey + "&i=" + id )
+      .then( response => response.json() )
+      .then( ( response ) => {
+        let result = response;
+
+        this.setState( prevState => {
+          return { ...prevState, selectedMovie: result, image }
+        } )
+      } )
+
+    console.log( this.state.selectedMovie );
+  }
+
 
   handleChangeSearchText = ( text ) => {
     this.setState( prevState => {
       return ( { ...prevState, searchValue: text } )
     } )
   }
+
 
   combinedTouchableFunctions = () => {
     this.getResponseFromApi()
@@ -58,7 +73,7 @@ export default class App extends React.Component {
               onChangeText={ text => this.handleChangeSearchText( text ) }
               onSubmitEditing={ this.getResponseFromApi }
             />
-            { this.state.results ? <ResultMovies results={ this.state.results } /> : <Text style={ AppStyles.errorMessage }>Unfortunately no video found</Text> }
+            { this.state.results ? <ResultMovies getMovieFromApi={ this.getMovieFromApi } results={ this.state.results } /> : <Text style={ AppStyles.errorMessage }>Unfortunately no video found</Text> }
           </View>
 
         </View>
