@@ -21,13 +21,14 @@ The first is a bit simpler using the "Play Store" on the android
 <br>
 <br>
 
-<p style="font-size: 20px" > Then please install the "expo" application:</p>
+## <p style="font-size: 20px; font-weight: bold" > Then please install the "expo" application:</p>
 
 
 <img  src="./ReadMeImages/expoSklepPlay.jpg">
 <br>
 <br>
-<p style="font-size: 20px" > Then please open the expo application and scan the QR code below</p>
+
+ ## <p style="font-size: 20px ; font-weight: bold" > Then please open the expo application and scan the QR code below</p>
 <br>
 
 <img  src="./ReadMeImages/ScanCode.jpg">
