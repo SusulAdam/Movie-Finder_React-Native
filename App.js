@@ -3,6 +3,7 @@ import { Text, TextInput, View, TouchableWithoutFeedback, Keyboard, Alert } from
 import AppStyles from './styles/AppStyles';
 import apiKey from "./constans/apiKey";
 import ResultMovies from "./components/ResultMovies";
+import MovieDescription from "./components/MovieDescription"
 
 
 export default class App extends React.Component {
@@ -12,7 +13,8 @@ export default class App extends React.Component {
     this.state = {
       searchValue: "",
       results: [],
-      selectedMovie: {}
+      selectedMovie: {},
+      modalVisible: false,
 
     };
   }
@@ -37,12 +39,10 @@ export default class App extends React.Component {
       .then( response => response.json() )
       .then( ( response ) => {
         let result = response;
-
         this.setState( prevState => {
-          return { ...prevState, selectedMovie: result, image }
+          return { ...prevState, selectedMovie: result, image, modalVisible: !this.state.modalVisible }
         } )
       } )
-
     console.log( this.state.selectedMovie );
   }
 
@@ -59,6 +59,12 @@ export default class App extends React.Component {
     Keyboard.dismiss()
   }
 
+  closeMovieDecription = () => {
+    this.setState( {
+      selectedMovie: {}, modalVisible: !this.state.modalVisible
+    } )
+  }
+
   render () {
 
     return (
@@ -73,9 +79,11 @@ export default class App extends React.Component {
               onChangeText={ text => this.handleChangeSearchText( text ) }
               onSubmitEditing={ this.getResponseFromApi }
             />
-            { this.state.results ? <ResultMovies getMovieFromApi={ this.getMovieFromApi } results={ this.state.results } /> : <Text style={ AppStyles.errorMessage }>Unfortunately no video found</Text> }
           </View>
-
+          { this.state.results ?
+            <ResultMovies getMovieFromApi={ this.getMovieFromApi } results={ this.state.results } /> :
+            <Text style={ AppStyles.errorMessage }>Unfortunately no video found</Text> }
+          <MovieDescription closeMovieDecription={ this.closeMovieDecription } description={ this.state.selectedMovie } modalVisible={ this.state.modalVisible } />
         </View>
       </TouchableWithoutFeedback>
 
