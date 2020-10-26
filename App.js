@@ -58,7 +58,7 @@ export default class App extends React.Component {
               onChangeText={ text => this.handleChangeSearchText( text ) }
               onSubmitEditing={ this.getResponseFromApi }
             />
-            { this.state.results ? <ResultMovies /> : <Text style={ AppStyles.errorMessage }>Unfortunately no video found</Text> }
+            { this.state.results ? <ResultMovies results={ this.state.results } /> : <Text style={ AppStyles.errorMessage }>Unfortunately no video found</Text> }
           </View>
 
         </View>
