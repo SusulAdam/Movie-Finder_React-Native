@@ -2,13 +2,16 @@
   "expo": {
     "name": "Movie-Finder_React-Native",
     "slug": "Movie-Finder_React-Native",
+    "description": "Find movie",
     "version": "1.0.0",
+    "privacy": "public",
+    "sdkVersion": "39.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#2D2D2D"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -17,10 +20,16 @@
       "**/*"
     ],
     "ios": {
+      "bundleIdentifier": "app.netlify.adamsusul",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "android": {
+      "package": "app.netlify.adamsusul",
+      "versionCode": 1
     }
   }
 }
