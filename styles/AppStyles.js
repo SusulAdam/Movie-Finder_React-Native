@@ -28,4 +28,8 @@ export default {
         borderRadius: 8,
         marginBottom: 40
     },
+    errorMessage: {
+        fontSize: 17,
+        color: colors.errorColor
+    }
 }
